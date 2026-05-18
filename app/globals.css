@@ -3,29 +3,53 @@
 :root {
   --primary: #3758f9;
   --brand: #0090ff;
+  --secondary-brand: #00caa3;
+  --invert: #f2f2f2;
 
   --text-primary: #333333;
   --text-secondary: #526071;
   --text-disabled: #bdbdbd;
 
+  --icon-secondary: #828282;
+
   --background: #ffffff;
   --border: #e0e0e0;
+
+  --dark-800: #111b26;
+  --dark-600: #2c3c4d;
+  --gray-1: #333333;
+  --gray-2: #4f4f4f;
+  --gray-3: #828282;
 }
 
 @theme inline {
   /* COLORS */
   --color-primary: var(--primary);
   --color-brand: var(--brand);
+  --color-secondary-brand: var(--secondary-brand);
+  --color-invert: var(--invert);
 
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-disabled: var(--text-disabled);
 
+  --color-icon-secondary: var(--icon-secondary);
+
   --color-background: var(--background);
   --color-border: var(--border);
 
+  --color-dark-800: var(--dark-800);
+  --color-dark-600: var(--dark-600);
+  --color-gray-1: var(--gray-1);
+  --color-gray-2: var(--gray-2);
+  --color-gray-3: var(--gray-3);
+
   /* FONTS */
-  --font-sans: var(--font-inter);
+  --font-inter: var(--font-inter);
+  --font-poppins: var(--font-poppins);
+  --font-montserrat: var(--font-montserrat);
+  --font-nunito-sans: var(--font-nunito-sans);
+  --font-sora: var(--font-sora);
 
   /* TYPOGRAPHY HEADING SCALE */
   --text-h1: 60px;
