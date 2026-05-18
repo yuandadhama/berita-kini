@@ -1,26 +1,143 @@
 @import "tailwindcss";
 
 :root {
+  --primary: #3758f9;
+  --brand: #0090ff;
+
+  --text-primary: #333333;
+  --text-secondary: #526071;
+  --text-disabled: #bdbdbd;
+
   --background: #ffffff;
-  --foreground: #171717;
+  --border: #e0e0e0;
 }
 
 @theme inline {
+  /* COLORS */
+  --color-primary: var(--primary);
+  --color-brand: var(--brand);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-disabled: var(--text-disabled);
+
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-border: var(--border);
+
+  /* FONTS */
+  --font-sans: var(--font-inter);
+
+  /* TYPOGRAPHY HEADING SCALE */
+  --text-h1: 60px;
+  --text-h1--line-height: 72px;
+
+  --text-h2: 48px;
+  --text-h2--line-height: 58px;
+
+  --text-h3: 40px;
+  --text-h3--line-height: 48px;
+
+  --text-h4: 30px;
+  --text-h4--line-height: 38px;
+
+  --text-h5: 28px;
+  --text-h5--line-height: 40px;
+
+  --text-h6: 24px;
+  --text-h6--line-height: 30px;
+
+  /* TYPOGRAPHY BODY LARGE TEXT */
+  --text-body-large: 18px;
+  --text-body-large--line-height: 26px;
+
+  /* TYPOGRAPHY BODY MEDIUM TEXT */
+  --text-body-medium: 16px;
+  --text-body-medium--line-height: 24px;
+
+  /* TYPOGRAPHY BODY SMALL TEXT  */
+  --text-body-small: 14px;
+  --text-body-small--line-height: 22px;
+
+  /* TYPOGRAPHY BODY EXTRA SMALL TEXT */
+  --text-body-extra-small: 12px;
+  --text-body-extra-small--line-height: 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* HEADING UTILITIES  */
+@utility heading-1 {
+  @apply text-h1 font-bold;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility heading-2 {
+  @apply text-h2 font-bold;
+}
+
+@utility heading-3 {
+  @apply text-h3 font-bold;
+}
+
+@utility heading-4 {
+  @apply text-h4 font-bold;
+}
+
+@utility heading-5 {
+  @apply text-h5 font-semibold;
+}
+
+@utility heading-6 {
+  @apply text-h6 font-semibold;
+}
+
+/* TEXT BODY LARGE UTILITIES */
+
+@utility text-lg-regular {
+  @apply text-body-large font-normal;
+}
+
+@utility text-lg-medium {
+  @apply text-body-large font-medium;
+}
+
+@utility text-lg-semibold {
+  @apply text-body-large font-semibold;
+}
+
+@utility text-lg-bold {
+  @apply text-body-large font-bold;
+}
+
+/* TEXT BODY MEDIUM UTILITIES */
+
+@utility text-md-regular {
+  @apply text-body-medium font-normal;
+}
+
+@utility text-md-medium {
+  @apply text-body-medium font-medium;
+}
+
+@utility text-md-semibold {
+  @apply text-body-medium font-semibold;
+}
+
+@utility text-md-bold {
+  @apply text-body-medium font-bold;
+}
+
+/* TEXT BODY SMALL UTILITIES */
+@utility text-sm-regular {
+  @apply text-body-small font-normal;
+}
+
+@utility text-sm-medium {
+  @apply text-body-small font-medium;
+}
+
+/* TEXT BODY EXTRA SMALL UTILITIES  */
+@utility text-xs-regular {
+  @apply text-body-extra-small font-normal;
+}
+
+@utility text-xs-medium {
+  @apply text-body-extra-small font-medium;
 }
