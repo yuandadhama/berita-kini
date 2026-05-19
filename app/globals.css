@@ -10,6 +10,7 @@
   --text-secondary: #526071;
   --text-disabled: #bdbdbd;
 
+  --icon-primary: #333333;
   --icon-secondary: #828282;
 
   --background: #ffffff;
@@ -20,6 +21,7 @@
   --gray-1: #333333;
   --gray-2: #4f4f4f;
   --gray-3: #828282;
+  --tetriary: #959ea9;
 }
 
 @theme inline {
@@ -33,6 +35,7 @@
   --color-text-secondary: var(--text-secondary);
   --color-text-disabled: var(--text-disabled);
 
+  --color-icon-primary: var(--icon-primary);
   --color-icon-secondary: var(--icon-secondary);
 
   --color-background: var(--background);
@@ -43,6 +46,7 @@
   --color-gray-1: var(--gray-1);
   --color-gray-2: var(--gray-2);
   --color-gray-3: var(--gray-3);
+  --color-tetriary: var(--tetriary);
 
   /* FONTS */
   --font-inter: var(--font-inter);
