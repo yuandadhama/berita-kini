@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "static.republika.co.id" },
       { protocol: "https", hostname: "*.okezone.com" },
       { protocol: "https", hostname: "img.okezone.com" },
+      { protocol: "https", hostname: "akcdn.detik.net.id" },
     ],
   },
 };

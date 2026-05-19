@@ -1,98 +1,13 @@
-import RecommendationCard from "@/components/news/RecommendationCard";
-import beritaPolitik from "../../../public/berita-politik.png";
+import PopularNewsCard from "../news/PopularNewsCard";
 
-// const relatedNews = [
-//   {
-//     id: 1,
-//     title:
-//       "Pj. Gubernur Adhy Tekankan Pelayanan Berkualitas saat Sharing Session di RSUD Dr. S...",
-//     category: "Nasional",
-//     date: "22 Jan 2024",
-//     image: beritaPolitik,
-//   },
-//   {
-//     id: 2,
-//     title:
-//       "Flypass Bonanza dan Heli Bell 505 Warnai Tupdik dan Wing Day 11 Perwira Penerbang TNI...",
-//     category: "Nasional",
-//     date: "22 Jan 2024",
-//     image: beritaPolitik,
-//   },
-//   {
-//     id: 3,
-//     title:
-//       "Perwira Penerbangan TNI AL Raih Gelar 'Double Degree' di PSL Université Paris",
-//     category: "Nasional",
-//     date: "22 Jan 2024",
-//     image: beritaPolitik,
-//   },
-// ];
+const uri = "https://berita-indo-api-next.vercel.app/api/antara-news/top-news";
 
-const relatedNews = [
-  {
-    id: 1,
-    title:
-      "Plt Gubernur Adhy Tetaskan Pelayanan Berkualitas saat Olahraga Berkelas Internasional",
-    category: "Nasional",
-    date: "22 Jan 2024",
-    image: "/berita-bola.png",
-  },
-  {
-    id: 2,
-    title:
-      "Flypass Bonanza dan Hell Bali 505 Warnai Tumplik dan Wing Day 11 Penerba Puantara 33",
-    category: "Nasional",
-    date: "22 Jan 2024",
-    image: "/berita-bola.png",
-  },
-  {
-    id: 3,
-    title:
-      "Peraera Penerbangan TNI AL Raih Gelar 'Double Degree' di PSL Universite Paris",
-    category: "Nasional",
-    date: "22 Jan 2024",
-    image: "/berita-bola.png",
-  },
-  // {
-  //   id: 4,
-  //   title: "Bank Jatim Gilis Ramadan Vaganza Negeri Dikota Bekang Selyaken",
-  //   category: "Nasional",
-  //   date: "22 Jan 2024",
-  //   image: "/berita-bola.png",
-  // },
-  // {
-  //   id: 5,
-  //   title:
-  //     "PLN Sukses Lakukan Pemeriharaan Off 2 Tahunan PLTD GTSTTL 2000kV Mataram",
-  //   category: "Nasional",
-  //   date: "22 Jan 2024",
-  //   image: "/berita-bola.png",
-  // },
-  // {
-  //   id: 6,
-  //   title:
-  //     "Berita Persiahaman di Indonesia, Professi IYS Ciptakan Rislem Ambisius",
-  //   category: "Nasional",
-  //   date: "22 Jan 2024",
-  //   image: "/berita-bola.png",
-  // },
-  // {
-  //   id: 7,
-  //   title: "BKD Jatim Bersama BNI Gelar 'Tes Karkoba Bagi Pegawai Non ASN",
-  //   category: "Nasional",
-  //   date: "22 Jan 2024",
-  //   image: "/berita-bola.png",
-  // },
-  // {
-  //   id: 8,
-  //   title: "Bank Indonesia Prediksi Ekonomi Jatim 2024 Tumbuh Lebih Tinggi",
-  //   category: "Nasional",
-  //   date: "22 Jan 2024",
-  //   image: "/berita-bola.png",
-  // },
-];
+const RelatedNews = async () => {
+  const response = await fetch(uri, { next: { revalidate: 3600 } });
+  const { data } = await response.json();
 
-const RelatedNews = () => {
+  const relatedNews = data.slice(0, 3);
+
   return (
     <div className="mt-20">
       {/* Header */}
@@ -108,8 +23,8 @@ const RelatedNews = () => {
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {relatedNews.map((item) => (
-          <RecommendationCard key={item.id} item={item} />
+        {relatedNews.map((item: any, index: number) => (
+          <PopularNewsCard key={item.link} item={item} index={index} />
         ))}
       </div>
     </div>

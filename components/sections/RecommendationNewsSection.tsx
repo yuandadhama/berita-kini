@@ -1,6 +1,6 @@
-import RecommendationNewsClient from "@/components/news/RecommendationNewsClient";
 import { normalizeRepublika, normalizeOkezone, NewsItem } from "@/types/news";
 import { scrapeOgImage } from "@/lib/scrapeOgImage";
+import NewsClient from "@/components/news/NewsClient";
 
 const REPUBLIKA_URL =
   "https://berita-indo-api-next.vercel.app/api/republika-news";
@@ -45,7 +45,7 @@ const RecommendationNewsSection = async () => {
 
   return (
     <section className="mt-16">
-      <RecommendationNewsClient allNews={allNews} />
+      <NewsClient allNews={allNews} title="Rekomendasi Untuk Anda" />
     </section>
   );
 };

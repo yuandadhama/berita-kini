@@ -1,12 +1,18 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import RecommendationCard from "@/components/news/RecommendationCard";
 import { NewsItem } from "@/types/news";
+import NewsCard from "@/components/news/NewsCard";
 
 const PAGE_SIZE = 8;
 
-const RecommendationNewsClient = ({ allNews }: { allNews: NewsItem[] }) => {
+const NewsClient = ({
+  allNews,
+  title,
+}: {
+  allNews: NewsItem[];
+  title: string;
+}) => {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
 
@@ -44,7 +50,7 @@ const RecommendationNewsClient = ({ allNews }: { allNews: NewsItem[] }) => {
       <div className="flex items-center justify-between">
         <h2 className="flex items-center gap-2 font-nunito-sans text-2xl font-bold text-text-primary">
           <span className="inline-block h-6 w-1 rounded-full bg-brand" />
-          Rekomendasi Untuk Anda
+          {title}
         </h2>
 
         {/* Search */}
@@ -80,9 +86,7 @@ const RecommendationNewsClient = ({ allNews }: { allNews: NewsItem[] }) => {
       {/* Grid */}
       <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {paginated.length > 0 ? (
-          paginated.map((item) => (
-            <RecommendationCard key={item.id} item={item} />
-          ))
+          paginated.map((item) => <NewsCard key={item.id} item={item} />)
         ) : (
           <p className="col-span-4 text-center text-text-secondary py-10">
             Tidak ada berita yang cocok dengan pencarian &ldquo;{query}&rdquo;
@@ -147,4 +151,4 @@ const RecommendationNewsClient = ({ allNews }: { allNews: NewsItem[] }) => {
   );
 };
 
-export default RecommendationNewsClient;
+export default NewsClient;

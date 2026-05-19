@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { NewsItem } from "@/types/news";
 
-const RecommendationCard = ({ item }: { item: NewsItem }) => {
+const NewsCard = ({ item }: { item: NewsItem }) => {
   return (
     <Link href={item.link} target="_blank" rel="noopener noreferrer">
       <article className="group cursor-pointer">
@@ -62,4 +62,4 @@ const RecommendationCard = ({ item }: { item: NewsItem }) => {
   );
 };
 
-export default RecommendationCard;
+export default NewsCard;

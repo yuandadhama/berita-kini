@@ -13,34 +13,14 @@ const isiBerita = `Jakarta, CNN Indonesia --Ketua Badan Tim Nasional (BTN) PSSI 
 
             "Nanti kami akan  sampaikan [rencana pindah dari GBK]," ujar Sumardji saat ditanya  kemungkinan menggunakan stadion lain di putaran ketiga kualifikasi. Sumardji tidak membantah kondisi rumput GBK yang masih kurang bagus  dalam duel Indonesia vs Irak. PSSI pun berharap PPKGBK bisa lebih  memperhatikan kondisi rumput untuk pertandingan Skuad Garuda. "Kami sampai saat ini sudah telepon dengan pengelola GBK karena kondisi  rumput kemarin kurang bagus, kami memohon ke pihak GBK supaya  betul-betul disiapkan dan diperhatikan kondisi rumput," tutur Sumardji. "Kalau dilihat-lihat sepertinya kondisi rumput GBK kayaknya stres itu,  sehingga dengan kondisi itu akan memengaruhi, tadi saya telepon supaya  diperhatikan," kata Sumardji menambahkan.`;
 
-const popularNews = [
-  {
-    id: 1,
-    title:
-      "Kenapa Eks Jenderal Israel Kritik Cara IDF Bebaskan 4 Sandera Hamas?",
-    category: "Politik",
-    date: "22 Januari 2024",
-    image: beritaPolitik,
-  },
-  {
-    id: 2,
-    title:
-      "Kenapa Eks Jenderal Israel Kritik Cara IDF Bebaskan 4 Sandera Hamas?",
-    category: "Politik",
-    date: "22 Januari 2024",
-    image: beritaPolitik,
-  },
-  {
-    id: 3,
-    title:
-      "Kenapa Eks Jenderal Israel Kritik Cara IDF Bebaskan 4 Sandera Hamas?",
-    category: "Politik",
-    date: "22 Januari 2024",
-    image: beritaPolitik,
-  },
-];
+const uri = "https://berita-indo-api-next.vercel.app/api/antara-news/top-news";
 
-const page = () => {
+const page = async () => {
+  const response = await fetch(uri, { next: { revalidate: 3600 } });
+  const { data } = await response.json();
+
+  const popularNews = data.slice(0, 12);
+
   return (
     <div className="container mx-auto px-5 lg:px-10 mt-40 mb-40">
       <div className="flex gap-3 items-center mb-20">
@@ -117,8 +97,8 @@ const page = () => {
           </h2>
 
           <div className="mt-10 grid gap-6  lg:divide-y lg:divide-[#E0E0E0]">
-            {popularNews.map((item, index) => (
-              <PopularNewsCard key={item.id} item={item} index={index} />
+            {popularNews.map((item: any, index: number) => (
+              <PopularNewsCard key={item.link} item={item} index={index} />
             ))}
           </div>
         </div>
