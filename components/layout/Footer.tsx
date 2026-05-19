@@ -5,9 +5,27 @@ import YoutubeLogo from "../ui/icons/footer/YoutubeLogo";
 import Logo from "../ui/icons/Logo";
 import PaperPlaneLogo from "../ui/icons/footer/PaperPlaneLogo";
 
+const navItems = [
+  { label: "Beranda", href: "/" },
+  { label: "Terbaru", href: "/terbaru" },
+  { label: "Nasional", href: "/nasional" },
+  { label: "Internasional", href: "/internasional" },
+  { label: "Ekonomi", href: "/ekonomi" },
+  { label: "Olahraga", href: "/olahraga" },
+  { label: "Teknologi", href: "/teknologi" },
+  { label: "Hiburan", href: "/hiburan" },
+  { label: "Gaya Hidup", href: "/gaya-hidup" },
+];
+
+const helps = [
+  { label: "Kontak Kami", href: "/kontak-kami" },
+  { label: "Laporan Pembajakan", href: "/laporan-pembajakan" },
+  { label: "Kebijakan", href: "/kebijakan" },
+];
+
 const Footer = () => {
   return (
-    <footer className="text-white bg-dark-800 ">
+    <footer className="text-white bg-dark-600">
       <div className="container py-10 px-6 flex items-start justify-around mx-auto gap-4">
         <div>
           <div className="flex items-center gap-5">
@@ -28,69 +46,27 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-2">
           <h6 className="font-nunito-sans font-semibold text-xl">Telusuri</h6>
-          <Link
-            href="/"
-            className="text-invert transition-colors hover:text-white mt-4"
-          >
-            Beranda
-          </Link>
-          <Link
-            href="/kesehatan"
-            className="text-invert transition-colors hover:text-white"
-          >
-            Kesehatan
-          </Link>
-          <Link
-            href="/otomotif"
-            className="text-invert transition-colors hover:text-white"
-          >
-            Otomotif
-          </Link>
-          <Link
-            href="/politik"
-            className="text-invert transition-colors hover:text-white"
-          >
-            Politik
-          </Link>
-          <Link
-            href="/olahraga"
-            className="text-invert transition-colors hover:text-white"
-          >
-            Olahraga
-          </Link>
-          <Link
-            href="/nasional"
-            className="text-invert transition-colors hover:text-white"
-          >
-            Nasional
-          </Link>
-          <Link
-            href="/internasional"
-            className="text-invert transition-colors hover:text-white"
-          >
-            Internasional
-          </Link>
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-invert transition-colors hover:text-white mt-4"
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
         <div className="flex flex-col gap-2">
           <h6 className="font-nunito-sans font-semibold text-xl">Bantuan</h6>
-          <Link
-            href="/"
-            className="text-invert transition-colors hover:text-white mt-4"
-          >
-            Kontak Kami
-          </Link>
-          <Link
-            href="/"
-            className="text-invert transition-colors hover:text-white"
-          >
-            Laporan Pembajakan
-          </Link>
-          <Link
-            href="/"
-            className="text-invert transition-colors hover:text-white"
-          >
-            Kebijakan
-          </Link>
+          {helps.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-invert transition-colors hover:text-white mt-4"
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
         <div className="flex flex-col gap-4">
           <h6 className="font-nunito-sans font-semibold text-xl">

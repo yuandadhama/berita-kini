@@ -8,10 +8,13 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { label: "Beranda", href: "/" },
   { label: "Terbaru", href: "/terbaru" },
-  { label: "Hiburan", href: "/hiburan" },
-  { label: "Gaya Hidup", href: "/gaya-hidup" },
   { label: "Nasional", href: "/nasional" },
   { label: "Internasional", href: "/internasional" },
+  { label: "Ekonomi", href: "/ekonomi" },
+  { label: "Olahraga", href: "/olahraga" },
+  { label: "Teknologi", href: "/teknologi" },
+  { label: "Hiburan", href: "/hiburan" },
+  { label: "Gaya Hidup", href: "/gaya-hidup" },
 ];
 
 const Navbar = () => {
